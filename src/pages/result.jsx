@@ -13,7 +13,7 @@ export default function ResultScreen() {
       for (const venue of results) {
         if (venue.address) {
           try {
-            const res = await fetch("http://localhost:9000/api/summarize", {
+            const res = await fetch("/api/summarize", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ address: venue.address }),

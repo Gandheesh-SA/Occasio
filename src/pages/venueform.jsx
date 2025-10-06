@@ -17,12 +17,13 @@ export default function VenueForm() {
   const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-    fetch("http://localhost:9000/api/cities")
+    fetch("/api/cities")
+
       .then((res) => res.json())
       .then((data) => setCities(data))
       .catch((err) => console.error(err));
 
-    fetch("http://localhost:9000/api/categories")
+    fetch("/api/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.error(err));
@@ -37,7 +38,7 @@ export default function VenueForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:9000/api/search", {
+      const response = await fetch("/api/search", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
